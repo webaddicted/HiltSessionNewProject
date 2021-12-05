@@ -12,7 +12,7 @@
 HiltSessionNewProject repository handle all api scenario. Manage all validation DI (Hilt).
 
 <!-- ## GIF -->
-<!-- <img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/funny.webp" width="305"> -->
+<!-- <img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/funny.webp" width="605"> -->
 
 ## GIF
 <img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/hilt.jpeg" width="350">
