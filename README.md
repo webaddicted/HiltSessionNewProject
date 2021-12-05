@@ -1,60 +1,40 @@
-# HiltDemo
+# HiltSessionNewProject
 
-![Open Issue](https://img.shields.io/github/issues/webaddicted/HiltDemo)
-![Forks](https://img.shields.io/github/forks/webaddicted/HiltDemo)
-![Stars](https://img.shields.io/github/stars/webaddicted/HiltDemo)
-![License](https://img.shields.io/github/license/webaddicted/HiltDemo)
+![Open Issue](https://img.shields.io/github/issues/webaddicted/HiltSessionNewProject)
+![Forks](https://img.shields.io/github/forks/webaddicted/HiltSessionNewProject)
+![Stars](https://img.shields.io/github/stars/webaddicted/HiltSessionNewProject)
+![License](https://img.shields.io/github/license/webaddicted/HiltSessionNewProject)
 
 ***You can Install and test latest Hilt Demo app from below 👇***
 
-[![HiltDemo](https://img.shields.io/badge/Hilt%20Demo-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/HiltDemo/blob/main/apk/app.apk)
+[![HiltSessionNewProject](https://img.shields.io/badge/Hilt%20Session%20New%20Project-Apk-brightgreen.svg?style=for-the-badge&logo=android)](https://github.com/webaddicted/HiltSessionNewProject/blob/main/apk/app.apk)
 
-HiltDemo repository handle all api scenario. Manage all validation DI (Hilt).
+HiltSessionNewProject repository handle all api scenario. Manage all validation DI (Hilt).
 
 <!-- ## GIF -->
-<!-- <img src="https://github.com/webaddicted/HiltDemo/raw/main/screenshot/funny.webp" width="305"> -->
+<!-- <img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/funny.webp" width="305"> -->
 
 ## GIF
-<img src="https://github.com/webaddicted/HiltDemo/raw/main/screenshot/hilt.png" width="350">
+<img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/hilt.png" width="350">
 
 ##Feature
 
 - [x] Retrofit
 - [x] Room Database
 - [x] Form Validation
-- [x] Map Direction
 - [x] Image Capture
 - [x] Scope Storage
 - [x] App Version Check
 - [x] DI(Hilt)
 - [x] Shared ViewModel using Hilt
-- [x] Dynamic Dialog Search
-- [x] Realtime Location Capture
-- [x]  Whatsapp Message
-- [x]  Phone Call from app
+- [x] Whatsapp Message
+- [x] Phone Call from app
 
 ## Screens
 - [Home Module](#HomeScreen)
-- [Map Module](#MapScreen)
-- [Order Module](#OrderScreen)
-- [Survey Module](#SurveyScreen)
-- [Validation](#ValidationScreen)
 
 ## HomeScreen
-<img src="https://github.com/webaddicted/HiltDemo/raw/main/screenshot/home.jpg" height="500">
-
-## MapScreen
-<img src="https://github.com/webaddicted/HiltDemo/raw/main/screenshot/map.jpg" height="500">
-
-## OrderScreen
-<img src="https://github.com/webaddicted/HiltDemo/raw/main/screenshot/order.jpg" height="500">
-
-## SurveyScreen
-<img src="https://github.com/webaddicted/HiltDemo/raw/main/screenshot/survey.jpg" height="500">
-
-## ValidationScreen
-<img src="https://github.com/webaddicted/HiltDemo/raw/main/screenshot/validation.jpg" height="500">
-
+<img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/home.jpg" height="500">
 
 ## LICENSE
 ```
