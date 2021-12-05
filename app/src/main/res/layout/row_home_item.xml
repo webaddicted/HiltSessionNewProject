@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="5dp"
+        android:background="@android:color/white"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="3dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detailsCl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/linear_call"
+            android:layout_toRightOf="@+id/badge"
+            android:background="@android:color/white">
+
+            <ImageView
+                android:id="@+id/img_pic"
+                android:layout_width="130dp"
+                android:layout_height="120dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/prodNameTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:fontFamily="@font/ufonts_com_klavika_bold_opentype"
+                android:paddingLeft="4dp"
+                android:paddingTop="4dp"
+                android:paddingRight="4dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/appBlue"
+                android:textSize="18sp"
+                android:maxLines="2"
+                android:ellipsize="marquee"
+                app:layout_constraintLeft_toRightOf="@+id/img_pic"
+                app:layout_constraintStart_toEndOf="@+id/img_pic"
+                card_view:layout_constraintTop_toTopOf="parent"
+                tools:text="Product Name" />
+
+            <TextView
+                android:id="@+id/txt_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
+                android:maxLines="4"
+                android:paddingLeft="4dp"
+                android:paddingTop="2dp"
+                android:paddingRight="4dp"
+                android:paddingBottom="2dp"
+                android:text="@string/dummyTxt"
+                android:textColor="@color/charcoal_grey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/img_pic"
+                app:layout_constraintStart_toEndOf="@+id/img_pic"
+                app:layout_constraintTop_toBottomOf="@+id/prodNameTv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

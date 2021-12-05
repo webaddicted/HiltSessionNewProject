@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hilt Session</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="error">Error</string>
+    <string name="dummyTxt">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmood tempor inciddidunt ut labore et dolore magna sed do sed do aliqua.</string>>
+    <string name="dialog_no_internet_msg">Seems You do not have active internet connection. Please connect to Internet and try again</string>
+    <string name="retry">Retry</string>
+    <string name="welcome">Welcome %s</string>
+    <string name="login">Login</string>
+    <string name="email">Email Id</string>
+    <string name="enter_mobile_no">Mobile number can\'t blank</string>
+    <string name="enter_valid_mobile_no">Enter valid mobile no</string>
+    <string name="mobile">Mobile</string>
+    <string name="contact_number_not_available">Contact number not available</string>
+    <string name="please_ensure_you_have_whatsapp_installed">Please ensure you have WhatsApp installed</string>
+    <string name="dbl_format_2_pts">%.2f</string>
+    <string name="forcefully_enable_permission">You have forcefully denied some of the required permissions for this action.\nPlease go to permissions and allow them.</string>
+    <string name="cannot_find_image_crop_app">Can not find Image Crop app</string>
+    <string name="insufficient_memory_error">Insufficient Memory error!</string>
+    <string name="success">Success</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="something_went_wrong">Something went wrong !!!</string>
+    <string name="no_network_msg">No Internet Connection</string>
+    <string name="comming_soon">Coming Soon</string>
+    <string name="enter_first_name">Enter first name</string>
+    <string name="enter_last_name">Enter last name</string>
+    <string name="enter_your_email">Enter email id</string>
+    <string name="error_enter_valid_email">Enter valid email id</string>
+    <string name="enter_dob">Enter dob</string>
+    <string name="enter_postal_code">Enter postal code</string>
+    <string name="enter_valid_postal_code">Enter valid postal code</string>
+
+    <string name="enter_voter_id_number">Enter voter id number</string>
+    <string name="enter_valid_voter_id_number">Enter valid voter id number</string>
+    <string name="enter_passport_no">Enter passport number</string>
+    <string name="enter_valid_passport_no">Enter valid passport number</string>
+    <string name="enter_driving_license_no">"Enter driving license number "</string>
+    <string name="enter_valid_driving_license_no">"Enter valid driving license number "</string>
+
+    <string name="enter_pan_no">Enter pan number</string>
+    <string name="enter_valid_pan_no">Enter valid pan number</string>
+    <string name="enter_aadhar_no">Enter aadhar number</string>
+    <string name="enter_valid_aadhar_no">Enter valid aadhar number</string>
+
+    <string name="enter_gstin_no">Enter GSTIN number</string>
+    <string name="enter_valid_gstin_no">Enter valid GSTIN number</string>
+    <string name="press_back_again_to_exit">Press back again to exit app.</string>
+
+
+</resources>

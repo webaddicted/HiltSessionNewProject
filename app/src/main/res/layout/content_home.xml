@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.webaddicted.hiltsession.viewmodel.HomeViewModel" />
+
+        <import type="android.view.View" />
+
+        <import type="com.webaddicted.hiltsession.utils.apiutils.ApiResponse.Status" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_grey"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/loadingTyreIv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/errorTv"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:drawableTop="@drawable/ic_error"-->
+        <!--            android:fontFamily="@font/ufonts_com_klavika_bold_opentype"-->
+        <!--            android:gravity="center"-->
+        <!--        android:paddingLeft="15dp"-->
+        <!--        android:paddingRight="15dp"-->
+        <!--            android:text="@string/no_records_found"-->
+        <!--            android:textColor="@color/appBlue"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <com.facebook.shimmer.ShimmerFrameLayout-->
+        <!--            android:id="@+id/homeShimmer"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical"-->
+        <!--            android:visibility="gone"-->
+        <!--            shimmer:shimmer_duration="800"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/titleTv">-->
+
+        <!--                <LinearLayout-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:orientation="vertical">-->
+        <!--                        <include layout="@layout/row_home_bplou_shimmer" />-->
+        <!--                        <include layout="@layout/row_home_bplou_shimmer" />-->
+        <!--                        <include layout="@layout/row_home_bplou_shimmer" />-->
+        <!--                        <include layout="@layout/row_home_bplou_shimmer" />-->
+        <!--                </LinearLayout>-->
+
+        <!--        </com.facebook.shimmer.ShimmerFrameLayout>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

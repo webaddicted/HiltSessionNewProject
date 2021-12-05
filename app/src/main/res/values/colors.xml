@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="launcher_background">#ffffff</color>
+    <color name="color_primary">#FF7F50</color>
+    <color name="color_primary_dark">#FF7F50</color>
+    <color name="color_secondary">#FF7F50</color>
+    <!--    <color name="colorAccent">#2383B7</color>-->
+    <color name="transparent_orange">#CCF6500F</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent_white">#99ffffff</color>
+    <color name="bottomsheet_bg">#D9ffffff</color>
+    <color name="shimmer_placeholder">#dddddd</color>
+    <color name="background_grey">#EEEEEE</color>
+    <color name="grey_blue_20opacity">#33405980</color>
+    <color name="edt_text_blue">#e6f2fe</color>
+    <color name="table_row_blue">#e6f2fe</color>
+    <color name="transparent_blue">#CC0055aa</color>
+    <color name="black">#000000</color>
+    <color name="red_color">#FF0000</color>
+    <color name="txtinpt_err_color">#dd3b00</color>
+    <color name="green">#008000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="charcoal_grey">#757575</color>
+    <color name="LightGray">#E6E6E6</color>
+    <color name="DarkGray">#757575</color>
+    <color name="Slate">#738c9a</color>
+    <color name="Khaki">#96917c</color>
+    <color name="ArmyGreen">#5f6e5a</color>
+    <color name="appBlue">#0055aa</color>
+    <color name="amber">#FF9800</color>
+    <color name="appOrange">#f5822d</color>
+    <color name="light_orange">#fed8b1</color>
+
+    <color name="tabIconDefault">#B8B8B8</color>
+    <color name="c360DescText">#36383A</color>
+    <color name="c360bg">#E7ECF2</color>
+    <color name="aqua">#5BC1DE</color>
+
+    <color name="fern">#5CB85C</color>
+    <color name="east_bay">#405980</color>
+    <color name="light_red">#f44949</color>
+    <color name="gray_818181">#818181</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="color_CDCDCD">#CDCDCD</color>
+</resources>
