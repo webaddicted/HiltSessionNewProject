@@ -15,7 +15,7 @@ HiltSessionNewProject repository handle all api scenario. Manage all validation 
 <!-- <img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/funny.webp" width="605"> -->
 
 ## GIF
-<img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/hilt.jpeg" width="350">
+<img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/hilt.jpeg" width="550">
 
 ##Feature
 
