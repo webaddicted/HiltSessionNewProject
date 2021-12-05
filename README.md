@@ -19,7 +19,8 @@ HiltSessionNewProject repository handle all api scenario. Manage all validation 
 
 <img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/app_info.gif" width="205">
 
-##Feature
+
+## Feature
 
 - [x] Retrofit
 - [x] Room Database
@@ -31,6 +32,7 @@ HiltSessionNewProject repository handle all api scenario. Manage all validation 
 - [x] Shared ViewModel using Hilt
 - [x] Whatsapp Message
 - [x] Phone Call from app
+- [x] Home Back Handle
 
 ## Screens
 - [Home Module](#HomeScreen)
