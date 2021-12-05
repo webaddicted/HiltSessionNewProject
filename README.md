@@ -17,6 +17,8 @@ HiltSessionNewProject repository handle all api scenario. Manage all validation 
 ## GIF
 <img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/hilt.jpeg" width="550">
 
+<img src="https://github.com/webaddicted/HiltSessionNewProject/raw/main/screenshot/app_info.gif" width="205">
+
 ##Feature
 
 - [x] Retrofit
