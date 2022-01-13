@@ -2,10 +2,8 @@ package com.webaddicted.hiltsession.data.model.home
 import com.google.gson.annotations.SerializedName
 
 data class UserInfoRespo(
-    @SerializedName("Email")val Email: String?,
-    @SerializedName("Id")val Id: String?,
-    @SerializedName("MobilePhone")val MobilePhone: String?,
-    @SerializedName("Name")val Name: String?,
-    @SerializedName("Username")val Username: String?,
+    @SerializedName("name")val name: String?,
+    @SerializedName("email")val email: String?,
+    @SerializedName("mobilePhone")val mobilePhone: String?,
     @SerializedName("address")val address: String?
 )
