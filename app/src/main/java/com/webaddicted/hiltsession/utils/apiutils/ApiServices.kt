@@ -1,7 +1,6 @@
 package com.webaddicted.hiltsession.utils.apiutils
 
 import com.webaddicted.hiltsession.data.model.common.CommonRespo
-import com.webaddicted.hiltsession.data.model.home.AppVersionRespo
 import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
 import com.webaddicted.hiltsession.data.model.img.SearchRespo
 import kotlinx.coroutines.Deferred
