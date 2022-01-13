@@ -1,14 +1,22 @@
 package com.webaddicted.hiltsession.utils.sp
 
+import android.content.Context
+import androidx.core.content.ContextCompat
 import com.google.common.truth.Truth
+import junit.framework.TestCase
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-//import com.google.common.truth.Truth.assertThat
 
 @RunWith(JUnit4::class)
-class PreferenceMgrTest {
+class PreferenceMgrTest : TestCase() {
 
+    @Before
+    fun setup(){
+//        val context = ApplicationProvider.getApplicationContext<Context>()
+//        PreferenceUtils.getInstance(context)
+    }
     @Test
     fun setUpdateNotifyDays() {
         PreferenceMgr(PreferenceUtils()).setUpdateNotifyDays(125)
