@@ -1,9 +1,6 @@
 package com.webaddicted.hiltsession.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.webaddicted.hiltsession.data.model.UserModel
-import com.webaddicted.hiltsession.data.model.common.CommonRespo
-import com.webaddicted.hiltsession.data.model.home.AppVersionRespo
 import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
 import com.webaddicted.hiltsession.data.model.img.SearchReq
 import com.webaddicted.hiltsession.data.model.img.SearchRespo
@@ -15,47 +12,32 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repo: HomeRepository) :
     BaseViewModel() {
+    var getDbUserInfoRespo = MutableLiveData<UserInfoRespo>()
+    var setDbUserInfoRespo = MutableLiveData<UserInfoRespo>()
     var getImageRespo = MutableLiveData<ApiResponse<SearchRespo>>()
-    var userInfoRespo = MutableLiveData<ApiResponse<CommonRespo<UserInfoRespo>>>()
-    var appVersionRespo = MutableLiveData<ApiResponse<CommonRespo<AppVersionRespo>>>()
 
     fun setPrefUserInfo(respo: UserInfoRespo?) {
-        val userModel = UserModel().apply {
-            Email = respo?.Email
-            Id = respo?.Id
-            MobilePhone = respo?.MobilePhone
-            Name = respo?.Name
-            Username = respo?.Username
+        val userModel = UserInfoRespo(
+            name = respo?.name,
+            email = respo?.email,
+            mobilePhone = respo?.mobilePhone,
             address = respo?.address
-        }
+        )
         return repo.setPrefUserInfo(userModel = userModel)
     }
 
-    fun getPrefUserInfo(): UserModel {
+    fun getPrefUserInfo(): UserInfoRespo? {
         return repo.getPrefUserInfo()
     }
 
-    fun clearPref() {
-        repo.clearPrefData()
+    fun getDbUserInfoApi() {
+        getDbUserInfoRespo = MutableLiveData<UserInfoRespo>()
+        repo.getDbUserInfoApi(getDbUserInfoRespo)
     }
 
-    fun setUpdateNotifyDays(days: Long) {
-        repo.setUpdateNotifyDays(days)
-    }
-
-    fun getUpdateNotifyDays(): Long? {
-        return repo.getUpdateNotifyDays()
-    }
-
-
-    fun userInfoApi() {
-        userInfoRespo = MutableLiveData<ApiResponse<CommonRespo<UserInfoRespo>>>()
-        repo.userInfoApi(userInfoRespo)
-    }
-
-    fun getAppVersion() {
-        appVersionRespo = MutableLiveData<ApiResponse<CommonRespo<AppVersionRespo>>>()
-        repo.getAppVersion(appVersionRespo)
+    fun setDbUserInfoApi() {
+        setDbUserInfoRespo = MutableLiveData<UserInfoRespo>()
+        repo.setDbUserInfoApi(setDbUserInfoRespo)
     }
 
     fun getImages(req: SearchReq) {
