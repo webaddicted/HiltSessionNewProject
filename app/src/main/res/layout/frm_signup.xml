@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/logo"
+            android:layout_marginTop="80dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/prodNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:fontFamily="@font/ufonts_com_klavika_bold_opentype"
+            android:paddingLeft="4dp"
+            android:paddingTop="4dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/appBlue"
+            android:textSize="18sp"
+            android:text="@string/app_name"
+            android:maxLines="2"
+            android:ellipsize="marquee"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_logo"
+            />
+
+        <TextView
+            android:id="@+id/txt_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
+            android:maxLines="4"
+            android:paddingLeft="23dp"
+            android:paddingTop="2dp"
+            android:paddingRight="23dp"
+            android:gravity="center"
+            android:paddingBottom="2dp"
+            android:text="@string/dummyTxt"
+            android:textColor="@color/charcoal_grey"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/prodNameTv" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_full_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:hint="@string/full_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_desc"
+            app:layout_goneMarginRight="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_full_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
+                android:inputType="textWebEmailAddress"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/appBlue"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:hint="@string/email"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_desc"
+            app:layout_goneMarginRight="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
+                android:inputType="textWebEmailAddress"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/appBlue"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_mobile"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:hint="@string/mobile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_email"
+            app:layout_goneMarginRight="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
+                android:inputType="number"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/appBlue"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/divider_margin_16"
+            android:backgroundTint="@color/appOrange"
+            android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_mobile" />
+
+        <ImageView
+            android:id="@+id/loadingTyreIv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:elevation="@dimen/padding_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+</layout>
