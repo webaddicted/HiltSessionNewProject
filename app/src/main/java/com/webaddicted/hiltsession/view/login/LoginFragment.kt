@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.webaddicted.hiltsession.R
-import com.webaddicted.hiltsession.data.model.UserModel
 import com.webaddicted.hiltsession.databinding.FrmLoginBinding
 import com.webaddicted.hiltsession.utils.common.GlobalUtils
 import com.webaddicted.hiltsession.utils.common.ValidationHelper
