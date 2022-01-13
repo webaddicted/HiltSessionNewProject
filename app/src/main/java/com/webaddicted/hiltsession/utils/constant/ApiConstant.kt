@@ -10,9 +10,9 @@ object ApiConstant {
       const val BASE_URL = "https://www.flickr.com/services/"
       const val SERVER_KEY: String = "3189212285dcb4cf5b2f044edcb0544e"
       const val IMG_URL: String = "https://live.staticflickr.com/"
-      const val DB_NAME = "force_tab.db"
+      const val DB_NAME = "HiltSession.db"
       const val DB_VERSION = 1
-      const val TODAY_BEAT_TABLE = "TodayBeats"
+      const val USER_INFO_TABLE = "UserInfo"
 
 
 
