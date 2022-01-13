@@ -47,6 +47,7 @@
     <string name="enter_gstin_no">Enter GSTIN number</string>
     <string name="enter_valid_gstin_no">Enter valid GSTIN number</string>
     <string name="press_back_again_to_exit">Press back again to exit app.</string>
+    <string name="full_name">Full Name</string>
 
 
 </resources>
