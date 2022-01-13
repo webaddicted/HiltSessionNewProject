@@ -1,6 +1,7 @@
 package com.webaddicted.hiltsession.data.respo
 
-import com.webaddicted.hiltsession.data.model.UserModel
+import com.webaddicted.hiltsession.data.db.UserInfoDao
+import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
 import com.webaddicted.hiltsession.utils.apiutils.ApiServices
 import com.webaddicted.hiltsession.utils.common.NetworkHelper
 import com.webaddicted.hiltsession.utils.sp.PreferenceMgr
@@ -16,16 +17,15 @@ open class BaseRepository @Inject constructor() {
     @Inject
     lateinit var networkHelper: NetworkHelper
 
+    @Inject
+    lateinit var userInfoDao: UserInfoDao
 
-    fun getPrefUserInfo(): UserModel {
+    fun getPrefUserInfo(): UserInfoRespo? {
         return spManager.getUserInfo()
     }
 
-    fun setPrefUserInfo(userModel: UserModel) {
+    fun setPrefUserInfo(userModel: UserInfoRespo) {
         spManager.setUserInfo(userModel = userModel)
     }
 
-    fun clearPrefData() {
-        spManager.clearPref()
-    }
 }
