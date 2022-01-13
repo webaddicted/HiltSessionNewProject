@@ -1,6 +1,6 @@
 package com.webaddicted.hiltsession.utils.sp
 
-import com.webaddicted.hiltsession.data.model.UserModel
+import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
 import com.webaddicted.hiltsession.utils.common.GlobalUtils
 import com.webaddicted.hiltsession.utils.constant.PreferenceConstant
 import javax.inject.Inject
@@ -14,7 +14,7 @@ class PreferenceMgr @Inject constructor(var preferenceUtils: PreferenceUtils) {
     /**
      * set user session info
      */
-    fun setUserInfo(userModel: UserModel) {
+    fun setUserInfo(userModel: UserInfoRespo) {
         preferenceUtils.setPreference(
             PreferenceConstant.PREF_USER_MODEL,
             GlobalUtils.serializeObj(userModel)
@@ -24,12 +24,13 @@ class PreferenceMgr @Inject constructor(var preferenceUtils: PreferenceUtils) {
     /**
      * get user session info
      */
-    fun getUserInfo(): UserModel {
+    fun getUserInfo(): UserInfoRespo? {
         val userModel = preferenceUtils.getPreference(PreferenceConstant.PREF_USER_MODEL, "")
-        return if (userModel == null || userModel.isEmpty()) UserModel() else (GlobalUtils.deserializeObj(
+        return if (userModel != null) (GlobalUtils.deserializeObj(
             userModel,
-            UserModel::class.java
-        ) as UserModel)
+            UserInfoRespo::class.java
+        ) as UserInfoRespo)
+        else null
     }
 
     fun setUpdateNotifyDays(days: Long) {
