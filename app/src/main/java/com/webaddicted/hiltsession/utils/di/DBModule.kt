@@ -30,7 +30,7 @@ object DBModule {
     @Singleton
     @Provides
     fun provideYourDao(db: AppDatabase) =
-        db.todayBeatDao() // The reason we can implement a Dao for the database
+        db.userInfoDao() // The reason we can implement a Dao for the database
 
 //    private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
 //        override fun migrate(database: SupportSQLiteDatabase) {
