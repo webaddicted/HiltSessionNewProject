@@ -13,6 +13,7 @@ abstract class DataFetchCall<ResultType>(private val responseLiveData: MutableLi
     abstract fun shouldFetchFromDB(): Boolean
     abstract fun internetConnection(): Boolean
     open fun loadFromDB() {
+
     }
 
     open fun saveResult(result: ResultType) {
