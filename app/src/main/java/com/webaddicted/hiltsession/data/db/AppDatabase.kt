@@ -9,3 +9,16 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun userInfoDao(): UserInfoDao
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
