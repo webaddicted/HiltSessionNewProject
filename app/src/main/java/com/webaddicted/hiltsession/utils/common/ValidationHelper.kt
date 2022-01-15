@@ -86,7 +86,15 @@ object ValidationHelper {
         }
         return false
     }
-
+    fun validateAddress(edtName: TextInputEditText, wrapperName: TextInputLayout): Boolean {
+        if (isBlank(edtName)) {
+            wrapperName.error = edtName.context.resources.getString(R.string.enter_address)
+        } else {
+            wrapperName.error = null
+            return true
+        }
+        return false
+    }
     fun validatePostalCode(textInput: TextInputEditText, wrapper: TextInputLayout): Boolean {
         val pattern = Pattern.compile("[1-9][0-9]{5}")
         val matcher: Matcher = pattern.matcher(textInput.text.toString().trim())
