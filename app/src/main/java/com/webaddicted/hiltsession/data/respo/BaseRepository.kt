@@ -27,5 +27,7 @@ open class BaseRepository @Inject constructor() {
     fun setPrefUserInfo(userModel: UserInfoRespo) {
         spManager.setUserInfo(userModel = userModel)
     }
-
+    fun clearPref() {
+        spManager.clearPref()
+    }
 }
