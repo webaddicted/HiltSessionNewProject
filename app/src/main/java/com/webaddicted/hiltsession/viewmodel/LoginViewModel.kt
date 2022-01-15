@@ -39,4 +39,8 @@ class LoginViewModel @Inject constructor(private val repo: LoginRepository) :
         setDbUserInfoRespo = MutableLiveData<ApiResponse<String>>()
         repo.setDbUserInfoApi(userInfo, setDbUserInfoRespo)
     }
+
+    fun clearSharePref() {
+        repo.clearPref()
+    }
 }
