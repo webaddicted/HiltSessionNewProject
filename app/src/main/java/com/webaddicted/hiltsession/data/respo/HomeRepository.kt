@@ -1,28 +1,23 @@
 package com.webaddicted.hiltsession.data.respo
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.webaddicted.hiltsession.data.db.DBConverter
+import com.webaddicted.hiltsession.data.db.UserInfoEntity
 import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
 import com.webaddicted.hiltsession.data.model.img.SearchReq
 import com.webaddicted.hiltsession.data.model.img.SearchRespo
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
 import com.webaddicted.hiltsession.utils.apiutils.DataFetchCall
 import com.webaddicted.hiltsession.utils.constant.ApiConstant
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import retrofit2.Response
 import javax.inject.Inject
 
 class HomeRepository @Inject constructor() : BaseRepository() {
-    fun getDbUserInfoApi(emailId:String, dbUserInfoRespo: MutableLiveData<UserInfoRespo>) {
-        GlobalScope.launch {
-          withContext{
-              var ssfds = userInfoDao.getUserInfoList(emailId) }
-            dbUserInfoRespo.postValue(respo.await())
-        }
-
-    }
-    fun setDbUserInfoApi(dbUserInfoRespo: MutableLiveData<UserInfoRespo>) {
-
-    }
 
     fun getImages(
         strUrl: SearchReq,
@@ -49,6 +44,4 @@ class HomeRepository @Inject constructor() : BaseRepository() {
             }
         }.execute()
     }
-
-
 }
