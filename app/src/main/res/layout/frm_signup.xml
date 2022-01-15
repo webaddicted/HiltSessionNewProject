@@ -17,7 +17,7 @@
             android:layout_height="140dp"
             android:layout_marginBottom="30dp"
             android:src="@drawable/logo"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -99,7 +99,7 @@
             android:hint="@string/email"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_desc"
+            app:layout_constraintTop_toBottomOf="@+id/input_full_name"
             app:layout_goneMarginRight="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -109,6 +109,7 @@
                 android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
                 android:inputType="textWebEmailAddress"
                 android:maxLines="1"
+                android:maxLength="50"
                 android:padding="8dp"
                 android:textColor="@color/appBlue"
                 android:textSize="18sp" />
@@ -140,21 +141,45 @@
                 android:textColor="@color/appBlue"
                 android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_address"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:hint="@string/address"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_mobile"
+            app:layout_goneMarginRight="5dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edt_height"
+                android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
+                android:maxLength="100"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:textColor="@color/appBlue"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_signup"
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/divider_margin_16"
             android:backgroundTint="@color/appOrange"
             android:fontFamily="@font/ufonts_com_klavika_regular_opentype"
-            android:text="@string/login"
+            android:text="@string/signup"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_mobile" />
+            app:layout_constraintTop_toBottomOf="@+id/input_address" />
 
         <ImageView
             android:id="@+id/loadingTyreIv"
