@@ -48,6 +48,17 @@
     <string name="enter_valid_gstin_no">Enter valid GSTIN number</string>
     <string name="press_back_again_to_exit">Press back again to exit app.</string>
     <string name="full_name">Full Name</string>
+    <string name="address">Address</string>
+    <string name="signup">Signup</string>
+    <string name="create_new_account">Create new account.</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="user_info_added_successfully">User Info Added Successfully</string>
+    <string name="login_successfully">Login Successfully</string>
+    <string name="email_mobile_not_match">Email Id and Mobile number not match</string>
+    <string name="depak_sharma">Deepak Sharma</string>
+    <string name="my_mail_id">techtamper@gmail.com</string>
+    <string name="my_mobie_no">9024061407</string>
+    <string name="my_address">Rajasthan</string>
 
 
 </resources>
