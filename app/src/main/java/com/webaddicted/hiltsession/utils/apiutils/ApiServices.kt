@@ -13,9 +13,6 @@ interface ApiServices {
     @GET("services/apexrest/userInfoDMS")
     fun getUserInfo(): Deferred<Response<CommonRespo<UserInfoRespo>>>
 
-    @GET("services/apexrest/MobileVersionDMS")
-    fun getAppVersion(): Deferred<Response<CommonRespo<AppVersionRespo>>>
-
     @GET("rest/?method=flickr.photos.search")
     fun searchApi(
         @Query("api_key") api_key: String,
