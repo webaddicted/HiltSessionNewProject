@@ -5,20 +5,20 @@ import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.webaddicted.hiltsession.R
+import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
 import com.webaddicted.hiltsession.databinding.FrmLoginBinding
+import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
 import com.webaddicted.hiltsession.utils.common.GlobalUtils
+import com.webaddicted.hiltsession.utils.common.GlobalUtils.showToast
 import com.webaddicted.hiltsession.utils.common.ValidationHelper
 import com.webaddicted.hiltsession.view.base.BaseFragment
 import com.webaddicted.hiltsession.view.home.HomeActivity
-import com.webaddicted.hiltsession.viewmodel.HomeViewModel
+import com.webaddicted.hiltsession.viewmodel.LoginViewModel
 
 class LoginFragment : BaseFragment(R.layout.frm_login) {
-    private lateinit var userInfo: UserModel
     private lateinit var mBinding: FrmLoginBinding
-    val homeVM: HomeViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
 
     companion object {
         val TAG = LoginFragment::class.qualifiedName
@@ -36,27 +36,51 @@ class LoginFragment : BaseFragment(R.layout.frm_login) {
     }
 
     private fun init() {
-
+        mBinding.edtEmail.setText(getString(R.string.my_mail_id))
+        mBinding.edtMobile.setText(getString(R.string.my_mobie_no))
     }
 
     private fun clickListener() {
         mBinding.btnLogin.setOnClickListener(this)
+        mBinding.txtSignup.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         super.onClick(v)
         when (v.id) {
+            R.id.txt_signup -> navigateScreen(SignupFragment.TAG)
             R.id.btn_login -> {
                 if (validate()) {
-                    Glide.with(this).load(R.raw.loader)
-                        .into(DrawableImageViewTarget(mBinding.loadingTyreIv))
-                    userInfo = homeVM.getPrefUserInfo()
-                    GlobalUtils.delay(4000) { _: Boolean ->
-                        HomeActivity.newClearLogin(mActivity)
+                    GlobalUtils.delay(1000) { _: Boolean ->
+                        checkUserInfo()
                     }
                 }
             }
         }
+    }
+
+    private fun checkUserInfo() {
+        loginViewModel.getDbUserInfoApi(mBinding.edtEmail.text.toString())
+        loginViewModel.getDbUserInfoRespo.observe(this, {
+            handleApiRespo(
+                it,
+                mBinding.loadingTyreIv
+            ) { isFailure: Boolean, result: ApiResponse<UserInfoRespo>? ->
+                if (isFailure) checkUserInfo()
+                else {
+                    val user = result?.data
+                    if (user?.email.equals(mBinding.edtEmail.text.toString()) &&
+                        user?.mobilePhone.equals(mBinding.edtMobile.text.toString())
+                    ) {
+                        activity?.showToast(getString(R.string.login_successfully))
+                        loginViewModel.setPrefUserInfo(user)
+                        HomeActivity.newClearLogin(mActivity)
+                    } else {
+                        activity?.showToast(getString(R.string.email_mobile_not_match))
+                    }
+                }
+            }
+        })
     }
 
     private fun validate(): Boolean {
@@ -70,8 +94,8 @@ class LoginFragment : BaseFragment(R.layout.frm_login) {
     private fun navigateScreen(tag: String?) {
         var frm: Fragment? = null
         when (tag) {
-//                  UserTypeFragment.TAG -> frm = UserTypeFragment.getInstance(Bundle())
+            SignupFragment.TAG -> frm = SignupFragment.getInstance(Bundle())
         }
-        if (frm != null) navigateFragment(R.id.container, frm, false)
+        if (frm != null) navigateFragment(R.id.container, frm, true)
     }
 }
