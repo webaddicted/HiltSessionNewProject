@@ -7,14 +7,14 @@ import androidx.room.Query
 
 @Dao
 interface UserInfoDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(student: List<UserInfoEntity>)
-
     //    @Query("select * From student ORDER BY studentId ASC")
 //    fun getBeatsList() : LiveData<MutableList<TodayBeatEntity>>
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(student: List<UserInfoEntity>)
+
     @Query("select * From UserInfo WHERE email >= :emailId")
-    fun getUserInfoList(emailId: String): UserInfoEntity
+    suspend fun getUserInfoList(emailId: String): UserInfoEntity
 
     @Query("select * From UserInfo ORDER BY name ASC")
     fun getAllUserInfoList(): List<UserInfoEntity>
