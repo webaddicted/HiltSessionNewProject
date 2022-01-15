@@ -1,24 +1,24 @@
 package com.webaddicted.hiltsession.view.splash
 
 import android.os.Bundle
-import android.util.Log
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.webaddicted.hiltsession.R
+import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
 import com.webaddicted.hiltsession.databinding.FrmSplashBinding
 import com.webaddicted.hiltsession.utils.common.GlobalUtils
 import com.webaddicted.hiltsession.view.base.BaseFragment
 import com.webaddicted.hiltsession.view.home.HomeActivity
 import com.webaddicted.hiltsession.view.login.LoginFragment
-import com.webaddicted.hiltsession.viewmodel.HomeViewModel
+import com.webaddicted.hiltsession.viewmodel.LoginViewModel
 
 class SplashFragment : BaseFragment(R.layout.frm_splash) {
-    private lateinit var userInfo: UserModel
+    private var userInfo: UserInfoRespo? = null
     private lateinit var mBinding: FrmSplashBinding
-    val homeVM: HomeViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
 
     companion object {
         val TAG = SplashFragment::class.qualifiedName
@@ -36,10 +36,9 @@ class SplashFragment : BaseFragment(R.layout.frm_splash) {
 
     private fun init() {
         Glide.with(this).load(R.raw.loader).into(DrawableImageViewTarget(mBinding.loadingTyreIv))
-        userInfo = homeVM.getPrefUserInfo()
+        userInfo = loginViewModel.getPrefUserInfo()
         GlobalUtils.delay(4000) { isLoading: Boolean ->
-            Log.d(TAG, "Test : ${userInfo.Email}")
-            if (userInfo.Email != null && userInfo.Email?.isNotEmpty()!!)
+            if (userInfo?.email != null && userInfo?.email?.isNotEmpty()!!)
                 HomeActivity.newClearLogin(mActivity)
             else navigateScreen(LoginFragment.TAG)
         }
