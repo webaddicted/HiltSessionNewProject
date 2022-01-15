@@ -26,7 +26,7 @@ class PreferenceMgr @Inject constructor(var preferenceUtils: PreferenceUtils) {
      */
     fun getUserInfo(): UserInfoRespo? {
         val userModel = preferenceUtils.getPreference(PreferenceConstant.PREF_USER_MODEL, "")
-        return if (userModel != null) (GlobalUtils.deserializeObj(
+        return if (userModel != null && userModel.isNotEmpty()) (GlobalUtils.deserializeObj(
             userModel,
             UserInfoRespo::class.java
         ) as UserInfoRespo)
