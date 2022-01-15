@@ -1,6 +1,7 @@
 package com.webaddicted.hiltsession.view.home
 
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,14 +13,16 @@ import com.webaddicted.hiltsession.data.model.img.SearchRespo
 import com.webaddicted.hiltsession.databinding.FrmHomeBinding
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
 import com.webaddicted.hiltsession.view.base.BaseFragment
+import com.webaddicted.hiltsession.view.splash.SplashActivity
 import com.webaddicted.hiltsession.viewmodel.HomeViewModel
+import com.webaddicted.hiltsession.viewmodel.LoginViewModel
 
 class HomeFragment : BaseFragment(R.layout.frm_home) {
     private var photoList: ArrayList<Photo>? = null
     private var homeAdapter: HomeAdapter? = null
     private lateinit var mBinding: FrmHomeBinding
     val homeViewModel: HomeViewModel by viewModels()
-//    val homeVM: HomeViewModel by activityViewModels()
+    val loginViewModel: LoginViewModel by viewModels()
 
     companion object {
         val TAG = HomeFragment::class.qualifiedName
@@ -37,8 +40,18 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
     }
 
     private fun init() {
+        mBinding.flaotClearData.setOnClickListener(this)
     }
 
+    override fun onClick(v: View) {
+        super.onClick(v)
+        when(v.id){
+            R.id.flaot_clear_data->{
+                loginViewModel.clearSharePref()
+                SplashActivity.newClearLogin(mActivity)
+            }
+        }
+    }
     private fun setAdapter() {
         homeAdapter = HomeAdapter(photoList!!) { menuItem: Photo -> onItemClicked(menuItem) }
         mBinding.itemRv.run {
