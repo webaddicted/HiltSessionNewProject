@@ -13,10 +13,12 @@ import org.junit.runners.JUnit4
 class PreferenceMgrTest : TestCase() {
 
     @Before
-    fun setup(){
+    override fun setUp() {
+        super.setUp()
         val context = ApplicationProvider.getApplicationContext<Context>()
         PreferenceUtils.getInstance(context)
     }
+
     @Test
     fun setUpdateNotifyDays() {
         PreferenceMgr(PreferenceUtils()).setUpdateNotifyDays(125)
