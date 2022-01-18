@@ -4,15 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.DrawableImageViewTarget
+import com.webaddicted.hiltsession.BuildConfig
+import com.webaddicted.hiltsession.R
+import com.webaddicted.hiltsession.data.model.common.CommonListRespo
+import com.webaddicted.hiltsession.data.model.common.CommonRespo
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
-import com.webaddicted.hiltsession.utils.common.GlobalUtils
-import com.webaddicted.hiltsession.utils.common.NetworkHelper
+import com.webaddicted.hiltsession.utils.common.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -87,11 +93,87 @@ abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClic
     }
 
     fun <T> handleApiRespo(
-        apiResponse: ApiResponse<T>, loadingView: View?,
+        apiResponse: ApiResponse<T>,
+        loadingView: View?,
         responseObserver: (isFailure: Boolean, result: ApiResponse<T>?) -> Unit
     ) {
-        handleApiRespo(apiResponse, loadingView, responseObserver)
+        when (apiResponse.status) {
+            ApiResponse.Status.NO_INTERNET_CONNECTION -> {
+                DialogUtils.getDialogInstance(
+                    mActivity,
+                    getString(R.string.error),
+                    getString(R.string.dialog_no_internet_msg),
+                    getString(R.string.retry),
+                    getString(R.string.cancel),
+                    { dialog, which -> responseObserver(true, apiResponse) },
+                    { dialog, which -> dialog.dismiss() })
+            }
+            ApiResponse.Status.LOADING -> {
+                if (loadingView != null && loadingView is ImageView) {
+                    loadingView.visible()
+                    Glide.with(this)
+                        .load(R.raw.loader)
+                        .into(DrawableImageViewTarget(loadingView))
+                }
+            }
+            ApiResponse.Status.ERROR -> {
+                val errorMsg: String = if (BuildConfig.DEBUG) {
+                    apiResponse.errorMessage.toString()
+                } else {
+                    getString(R.string.something_went_wrong)
+                }
+                DialogUtils.getDialogInstance(
+                    mActivity,
+                    getString(R.string.error), errorMsg,
+                    getString(R.string.retry),
+                    getString(R.string.cancel),
+                    { dialog, which -> responseObserver(true, apiResponse) },
+                    { dialog, which -> dialog.dismiss() })
+                loadingView?.gone()
+            }
+            ApiResponse.Status.SUCCESS -> {
+                var isSuccess: Boolean? = true
+                var errorMsg: String? = ""
+                if (apiResponse.data is CommonRespo<*>) {
+                    isSuccess = apiResponse.data.isSuccess
+                    errorMsg = apiResponse.data.strMessage
+                } else if (apiResponse.data is CommonListRespo<*>) {
+                    isSuccess = apiResponse.data.isSuccess
+                    errorMsg = apiResponse.data.strMessage
+                }
+                if (isSuccess == true) {
+                    responseObserver(false, apiResponse)
+                } else {
+                    errorMsg?.let {
+                        DialogUtils.getDialogInstance(
+                            mActivity,
+                            getString(R.string.error), it,
+                            getString(R.string.retry),
+                            getString(R.string.cancel),
+                            { dialog, which -> responseObserver(true, apiResponse) },
+                            { dialog, which -> dialog.dismiss() })
+                    }
+                }
+                loadingView?.gone()
+            }
+        }
     }
+
+
+//  protected fun <T> handleApi(
+//    apiResponse: ApiResponse<T>,
+//    loadingView: View?,
+//    errorView: View? = null,
+//    showDialog: Boolean = false
+//  ) {
+//    errorView?.gone()
+//    (activity as BaseActivity).handleApi(
+//      apiResponse,
+//      loadingView,
+//      errorView,
+//      showDialog
+//    )
+//  }
 
     fun <T> LiveData<ApiResponse<T>>.observeOnce(
         lifecycleOwner: LifecycleOwner,
