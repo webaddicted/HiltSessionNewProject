@@ -11,10 +11,10 @@ interface UserInfoDao {
 //    fun getBeatsList() : LiveData<MutableList<TodayBeatEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(student: List<UserInfoEntity>)
+    suspend fun insertUser(student: List<UserInfoEntity>)
 
     @Query("select * From UserInfo WHERE email >= :emailId")
-    suspend fun getUserInfoList(emailId: String): UserInfoEntity
+    suspend fun getUserInfoList(emailId: String?): UserInfoEntity
 
     @Query("select * From UserInfo ORDER BY name ASC")
     fun getAllUserInfoList(): List<UserInfoEntity>
