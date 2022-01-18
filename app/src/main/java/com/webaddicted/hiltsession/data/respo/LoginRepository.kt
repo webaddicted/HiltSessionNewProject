@@ -43,7 +43,7 @@ class LoginRepository @Inject constructor() : BaseRepository() {
     ) {
         CoroutineScope(Dispatchers.IO).async {
             try {
-                userInfoDao.insert(DBConverter.userInfoToDbTypeRespo(mutableListOf(userInfo) as ArrayList<UserInfoRespo>))
+                userInfoDao.insertUser(DBConverter.userInfoToDbTypeRespo(mutableListOf(userInfo) as ArrayList<UserInfoRespo>))
                 dbUserInfoRespo.postValue(ApiResponse.success(""))
             } catch (e: Exception) {
                 Log.e("TAG", "Excep : $e")
