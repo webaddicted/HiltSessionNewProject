@@ -29,22 +29,22 @@ class PreferenceUtils @Inject constructor(){
       * Get data from mPreferenceUtil with key {key} & of type {obj}
       *
       * @param key     preference key
-      * @param defautlValue default key for preference
+      * @param defautValue default key for preference
       * @param <T>
       * @return
       </T> */
-      fun <T> getPreference(key: String, defautlValue: T): T? {
+      fun <T> getPreference(key: String, defautValue: T): T? {
             try {
-                  if (defautlValue is String) {
-                    return mLocalPreferences?.getString(key, defautlValue as String) as T
-                  } else if (defautlValue is Int) {
-                    return mLocalPreferences?.getInt(key, defautlValue as Int) as T
-                  } else if (defautlValue is Boolean) {
-                    return mLocalPreferences?.getBoolean(key, defautlValue as Boolean) as T
-                  } else if (defautlValue is Float) {
-                    return mLocalPreferences?.getFloat(key, defautlValue as Float) as T
-                  } else if (defautlValue is Long) {
-                    return mLocalPreferences?.getLong(key, defautlValue as Long) as T
+                  if (defautValue is String) {
+                    return mLocalPreferences?.getString(key, defautValue as String) as T
+                  } else if (defautValue is Int) {
+                    return mLocalPreferences?.getInt(key, defautValue as Int) as T
+                  } else if (defautValue is Boolean) {
+                    return mLocalPreferences?.getBoolean(key, defautValue as Boolean) as T
+                  } else if (defautValue is Float) {
+                    return mLocalPreferences?.getFloat(key, defautValue as Float) as T
+                  } else if (defautValue is Long) {
+                    return mLocalPreferences?.getLong(key, defautValue as Long) as T
                   }
                 } catch (e: Exception) {
                   e.printStackTrace()
@@ -53,14 +53,6 @@ class PreferenceUtils @Inject constructor(){
             return null
           }
 
-      /**
-      * Save data to mPreferenceUtil with key {key} & of type {obj}
-      *
-      * @param key
-      * @param value
-      * @param <T>
-      * @return
-      </T> */
       fun <T> setPreference(key: String, value: T) {
             try {
                   val editor = mLocalPreferences?.edit()
