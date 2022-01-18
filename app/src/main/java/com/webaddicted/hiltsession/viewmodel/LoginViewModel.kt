@@ -2,9 +2,6 @@ package com.webaddicted.hiltsession.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.webaddicted.hiltsession.data.model.home.UserInfoRespo
-import com.webaddicted.hiltsession.data.model.img.SearchReq
-import com.webaddicted.hiltsession.data.model.img.SearchRespo
-import com.webaddicted.hiltsession.data.respo.HomeRepository
 import com.webaddicted.hiltsession.data.respo.LoginRepository
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
