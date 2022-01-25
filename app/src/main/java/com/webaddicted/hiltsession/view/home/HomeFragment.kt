@@ -13,7 +13,7 @@ import com.webaddicted.hiltsession.data.model.img.SearchRespo
 import com.webaddicted.hiltsession.databinding.FrmHomeBinding
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
 import com.webaddicted.hiltsession.view.base.BaseFragment
-import com.webaddicted.hiltsession.view.splash.SplashActivity
+import com.webaddicted.hiltsession.view.splash.WelcomeActivity
 import com.webaddicted.hiltsession.viewmodel.HomeViewModel
 import com.webaddicted.hiltsession.viewmodel.LoginViewModel
 
@@ -48,7 +48,7 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
         when(v.id){
             R.id.flaot_clear_data->{
                 loginViewModel.clearSharePref()
-                SplashActivity.newClearLogin(mActivity)
+                WelcomeActivity.newClearLogin(mActivity)
             }
         }
     }
