@@ -61,7 +61,7 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
     }
 
     private fun onItemClicked(menuItem: Photo) {
-
+//CameraActivity.newIntent(mActivity)
     }
 
     private fun getImages() {
