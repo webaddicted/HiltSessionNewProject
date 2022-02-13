@@ -45,13 +45,14 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
 
     override fun onClick(v: View) {
         super.onClick(v)
-        when(v.id){
-            R.id.flaot_clear_data->{
+        when (v.id) {
+            R.id.flaot_clear_data -> {
                 loginViewModel.clearSharePref()
                 WelcomeActivity.newClearLogin(mActivity)
             }
         }
     }
+
     private fun setAdapter() {
         homeAdapter = HomeAdapter(photoList!!) { menuItem: Photo -> onItemClicked(menuItem) }
         mBinding.itemRv.run {
@@ -61,7 +62,7 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
     }
 
     private fun onItemClicked(menuItem: Photo) {
-//CameraActivity.newIntent(mActivity)
+        navigateScreen(CharacterFragment.TAG)
     }
 
     private fun getImages() {
@@ -70,7 +71,7 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
             page = 1
         }
         homeViewModel.getImages(searchReq)
-        homeViewModel.getImageRespo.observe(this, {
+        homeViewModel.getImageRespo.observe(this) {
             handleApiRespo(
                 it,
                 mBinding.loadingTyreIv
@@ -81,13 +82,13 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
                     setAdapter()
                 }
             }
-        })
+        }
     }
 
     private fun navigateScreen(tag: String?) {
-        val frm: Fragment? = null
+        var frm: Fragment? = null
         when (tag) {
-//                  UserTypeFragment.TAG -> frm = UserTypeFragment.getInstance(Bundle())
+            CharacterFragment.TAG -> frm = CharacterFragment.getInstance(Bundle())
         }
         if (frm != null) navigateFragment(R.id.container, frm, false)
     }

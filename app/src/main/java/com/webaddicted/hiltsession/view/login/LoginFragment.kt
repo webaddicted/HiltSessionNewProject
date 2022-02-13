@@ -1,5 +1,6 @@
 package com.webaddicted.hiltsession.view.login
 
+import android.Manifest
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
@@ -11,10 +12,13 @@ import com.webaddicted.hiltsession.databinding.FrmLoginBinding
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
 import com.webaddicted.hiltsession.utils.common.GlobalUtils
 import com.webaddicted.hiltsession.utils.common.GlobalUtils.showToast
+import com.webaddicted.hiltsession.utils.common.ImagePickerHelper
+import com.webaddicted.hiltsession.utils.common.PermissionHelper
 import com.webaddicted.hiltsession.utils.common.ValidationHelper
 import com.webaddicted.hiltsession.view.base.BaseFragment
 import com.webaddicted.hiltsession.view.home.HomeActivity
 import com.webaddicted.hiltsession.viewmodel.LoginViewModel
+import java.util.ArrayList
 
 class LoginFragment : BaseFragment(R.layout.frm_login) {
     private lateinit var mBinding: FrmLoginBinding
@@ -50,18 +54,33 @@ class LoginFragment : BaseFragment(R.layout.frm_login) {
         when (v.id) {
             R.id.txt_signup -> navigateScreen(SignupFragment.TAG)
             R.id.btn_login -> {
-                if (validate()) {
-                    GlobalUtils.delay(1000) { _: Boolean ->
-                        checkUserInfo()
-                    }
-                }
+                val locationList = ArrayList<String>()
+                locationList.add(Manifest.permission.ACCESS_FINE_LOCATION)
+                locationList.add(Manifest.permission.ACCESS_COARSE_LOCATION)
+//                locationList.add(Manifest.permission.FOREGROUND_SERVICE)
+                PermissionHelper.requestMultiplePermission(
+                    mActivity,
+                    locationList,
+                    object : PermissionHelper.PermissionListener {
+                        override fun onPermissionGranted(mCustomPermission: List<String>) {
+                            if (validate()) {
+                                GlobalUtils.delay(1000) { _: Boolean ->
+                                    checkUserInfo()
+                                }
+                            }
+                        }
+
+                        override fun onPermissionDenied(mCustomPermission: List<String>) {
+
+                        }
+                    })
             }
         }
     }
 
     private fun checkUserInfo() {
         loginViewModel.getDbUserInfoApi(mBinding.edtEmail.text.toString())
-        loginViewModel.getDbUserInfoRespo.observe(this, {
+        loginViewModel.getDbUserInfoRespo.observe(this) {
             handleApiRespo(
                 it,
                 mBinding.loadingTyreIv
@@ -80,7 +99,7 @@ class LoginFragment : BaseFragment(R.layout.frm_login) {
                     }
                 }
             }
-        })
+        }
     }
 
     private fun validate(): Boolean {

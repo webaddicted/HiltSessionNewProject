@@ -24,5 +24,7 @@ class HomeAdapter(private val itemList: ArrayList<Photo>, val clickListener: (Ph
         mBinding.root.setOnClickListener {
             clickListener(item)
         }
+
+
     }
 }

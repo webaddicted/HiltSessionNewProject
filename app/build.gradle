@@ -31,16 +31,10 @@ android {
             dimension "versionCode"
             dimension "versionCode"
             dimension "appId"
-            buildConfigField "String", "BASE_URL", '"https://www.flickr.com/services/"'
+            buildConfigField "String", "BASE_URL", '"https://rickandmortyapi.com/api/"'
             buildConfigField "boolean", "IS_UAT", "false"
         }
     }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
     buildFeatures {
         dataBinding true
         viewBinding true
@@ -98,4 +92,5 @@ dependencies {
     implementation "androidx.room:room-runtime:2.4.1"
     kapt "androidx.room:room-compiler:2.4.1"
     implementation 'androidx.room:room-ktx:2.4.1'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 }

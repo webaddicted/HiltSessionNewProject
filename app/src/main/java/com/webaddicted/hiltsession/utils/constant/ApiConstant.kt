@@ -13,6 +13,7 @@ object ApiConstant {
       const val DB_NAME = "HiltSession.db"
       const val DB_VERSION = 1
       const val USER_INFO_TABLE = "UserInfo"
+      const val CHARACTER_API = "character"
 
 
 
