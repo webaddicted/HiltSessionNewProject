@@ -14,8 +14,6 @@ import com.webaddicted.hiltsession.data.model.character.CharacterRespo
 import com.webaddicted.hiltsession.data.model.character.Result
 import com.webaddicted.hiltsession.databinding.FrmHomeBinding
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
-import com.webaddicted.hiltsession.utils.common.gone
-import com.webaddicted.hiltsession.view.Test
 import com.webaddicted.hiltsession.view.base.BaseFragment
 import com.webaddicted.hiltsession.view.base.ScrollListener
 import com.webaddicted.hiltsession.viewmodel.HomeViewModel
@@ -50,7 +48,7 @@ class CharacterFragment : BaseFragment(R.layout.frm_home), TextWatcher {
         super.onClick(v)
         when (v.id) {
             R.id.flaot_clear_data -> {
-                Test.mergeSortData()
+                com.webaddicted.hiltsession.Test.main()
 //                WelcomeActivity.newClearLogin(mActivity)
             }
         }
@@ -62,7 +60,8 @@ class CharacterFragment : BaseFragment(R.layout.frm_home), TextWatcher {
             layoutManager = LinearLayoutManager(mActivity)
             adapter = characterAdapter
         }
-        mBinding.itemRv.addOnScrollListener(object : ScrollListener(mBinding.itemRv.layoutManager as LinearLayoutManager) {
+        mBinding.itemRv.addOnScrollListener(object :
+            ScrollListener(mBinding.itemRv.layoutManager as LinearLayoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView) {
                 getImages()
             }
@@ -78,9 +77,9 @@ class CharacterFragment : BaseFragment(R.layout.frm_home), TextWatcher {
             ) { isFailure: Boolean, result: ApiResponse<CharacterRespo>? ->
                 if (isFailure) getImages()
                 else {
-                    if(photoList==null) {
+                    if (photoList == null) {
                         photoList = result?.data?.results as ArrayList<Result>?
-                    }else{
+                    } else {
                         (result?.data?.results as ArrayList<Result>?)?.let { it1 ->
                             photoList?.addAll(
                                 it1
