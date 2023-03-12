@@ -92,7 +92,8 @@ class HomeActivity : BaseActivity(R.layout.activity_common) {
         when {
             supportFragmentManager.findFragmentById(R.id.container) != null -> {
                 when {
-                    supportFragmentManager.findFragmentById(R.id.container)?.childFragmentManager?.backStackEntryCount ?: 0 > 1 -> {
+                    (supportFragmentManager.findFragmentById(R.id.container)?.childFragmentManager?.backStackEntryCount
+                        ?: 0) > 1 -> {
                         supportFragmentManager.findFragmentById(R.id.container)?.childFragmentManager?.popBackStack()
                     }
                     supportFragmentManager.backStackEntryCount > 0 -> {
