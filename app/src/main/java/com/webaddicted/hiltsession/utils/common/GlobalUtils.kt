@@ -10,6 +10,7 @@ import android.icu.text.SimpleDateFormat
 import android.location.Location
 import android.net.ParseException
 import android.net.Uri
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.text.format.DateFormat
@@ -22,6 +23,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
@@ -120,6 +122,7 @@ object GlobalUtils {
         msg?.let { Log.d(tag, it) }
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     fun getDate(context: Context, mDobEtm: TextView) {
         val datePickerDialog = DatePickerDialog(
             context,
@@ -139,6 +142,7 @@ object GlobalUtils {
         datePickerDialog.show()
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     fun getFormattedDateFromDate(
         dateStr: String?,
         outputFormat: String,
