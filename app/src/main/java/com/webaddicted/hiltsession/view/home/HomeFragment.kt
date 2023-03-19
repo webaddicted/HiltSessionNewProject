@@ -21,8 +21,8 @@ class HomeFragment : BaseFragment(R.layout.frm_home) {
     private var photoList: ArrayList<Photo>? = null
     private var homeAdapter: HomeAdapter? = null
     private lateinit var mBinding: FrmHomeBinding
-    val homeViewModel: HomeViewModel by viewModels()
-    val loginViewModel: LoginViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
 
     companion object {
         val TAG = HomeFragment::class.qualifiedName
