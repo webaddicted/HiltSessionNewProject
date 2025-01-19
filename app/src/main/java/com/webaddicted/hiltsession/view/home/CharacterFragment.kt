@@ -16,6 +16,7 @@ import com.webaddicted.hiltsession.databinding.FrmHomeBinding
 import com.webaddicted.hiltsession.utils.apiutils.ApiResponse
 import com.webaddicted.hiltsession.view.base.BaseFragment
 import com.webaddicted.hiltsession.view.base.ScrollListener
+import com.webaddicted.hiltsession.view.splash.WelcomeActivity
 import com.webaddicted.hiltsession.viewmodel.HomeViewModel
 
 class CharacterFragment : BaseFragment(R.layout.frm_home), TextWatcher {
@@ -48,8 +49,8 @@ class CharacterFragment : BaseFragment(R.layout.frm_home), TextWatcher {
         super.onClick(v)
         when (v.id) {
             R.id.flaot_clear_data -> {
-                com.webaddicted.hiltsession.Test.main()
-//                WelcomeActivity.newClearLogin(mActivity)
+//                com.webaddicted.hiltsession.Test.main()
+                WelcomeActivity.newClearLogin(mActivity)
             }
         }
     }

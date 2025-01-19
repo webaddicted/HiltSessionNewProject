@@ -45,7 +45,7 @@ abstract class BaseDialog(private val layoutId: Int) : DialogFragment(), View.On
         observer: Observer<ApiResponse<T>>
     ) {
         observe(lifecycleOwner, object : Observer<ApiResponse<T>> {
-            override fun onChanged(t: ApiResponse<T>?) {
+            override fun onChanged(t: ApiResponse<T>) {
                 observer.onChanged(t)
                 if (t?.status != ApiResponse.Status.LOADING)
                     removeObserver(this)
@@ -55,7 +55,7 @@ abstract class BaseDialog(private val layoutId: Int) : DialogFragment(), View.On
 
     fun <T> LiveData<ApiResponse<T>>.observeOnce(observer: Observer<ApiResponse<T>>) {
         observeForever(object : Observer<ApiResponse<T>> {
-            override fun onChanged(t: ApiResponse<T>?) {
+            override fun onChanged(t: ApiResponse<T>) {
                 observer.onChanged(t)
                 if (t?.status != ApiResponse.Status.LOADING)
                     removeObserver(this)

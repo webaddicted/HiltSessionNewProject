@@ -180,7 +180,7 @@ abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClic
         observer: Observer<ApiResponse<T>>
     ) {
         observe(lifecycleOwner, object : Observer<ApiResponse<T>> {
-            override fun onChanged(t: ApiResponse<T>?) {
+            override fun onChanged(t: ApiResponse<T>) {
                 if (t?.status != ApiResponse.Status.LOADING)
                     removeObserver(this)
                 observer.onChanged(t)
@@ -190,7 +190,7 @@ abstract class BaseFragment(private val layoutId: Int) : Fragment(), View.OnClic
 
     fun <T> LiveData<ApiResponse<T>>.observeOnce(observer: Observer<ApiResponse<T>>) {
         observeForever(object : Observer<ApiResponse<T>> {
-            override fun onChanged(t: ApiResponse<T>?) {
+            override fun onChanged(t: ApiResponse<T>) {
                 observer.onChanged(t)
                 if (t?.status != ApiResponse.Status.LOADING)
                     removeObserver(this)
